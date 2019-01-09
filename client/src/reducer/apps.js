@@ -19,6 +19,20 @@ export const addApp = (app) => {
   }
 }
 
+export const updateApp = (app) => {
+  return (dispatch) => {
+    axios.put(`/api/apps/${app.id}`, {app})
+      .then( res => dispatch({type: UPDATE_APP, app: res.data}))
+  }
+}
+
+export const deleteApp = (id) => {
+  return (dispatch) => {
+    axios.delete(`/api/apps/${id}`)
+      .then( res => dispatch({ type: DELETE_APP, id }))
+  }
+}
+
 export default (state = [], action) => {
   switch(action.type) {
     case APPS:

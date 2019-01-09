@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Apps from './components/Apps';
 import { Container, } from "semantic-ui-react";
 import { Route, Switch, } from "react-router-dom";
+import AppView from './components/AppView';
 
 const App = () => (
   <Fragment>
@@ -13,6 +14,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/apps" component={Apps} />
+        <Route exact path="/apps/:id" component={AppView} />
         <Route component={NoMatch} />
       </Switch>
     </Container>
